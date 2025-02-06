@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+void DisplayMedicine()
+{
+		cout << "-------  Available Medicine  -------\n\n\n";
+		cout << "  1. Biogesic          - 3 Pesos     \n";
+		cout << "  2. Bioflu            - 2 Pesos     \n";
+		cout << "  3. Paracetamol       - 5 Pesos     \n";
+		cout << "  4. Lagundi           - 10 Pesos     \n";
+		cout << "  5. Dextromethorphan  - 7 Pesos     \n";
+}
+
+void DisplayShop()
+{
+	int choice;
+	int total = 0, payment, change; 
+
+		DisplayMedicine();
+
+		cout << "Enter the medicine number you want to buy: ";
+		cin >> choice;
+
+
+		if (choice == 1) total += 3;
+		else if (choice == 2) total += 2;
+		else if (choice == 3) total += 5;
+		else if (choice == 4) total += 10;
+		else if (choice == 5) total += 7;
+		else
+		{
+			cout << "Invalid choice! \n\n";
+		}
+		cout << " Total amount to pay: " << total << " Pesos \n";
+		cout << " Enter payment amount: ";
+		cin >> payment; 
+		
+		if (payment < total)
+		{
+			cout << "Insufficient payment: Payment cancelled! \n\n"; 
+		}
+		else
+		{
+			change = payment - total;
+
+			cout << "Payment successful. Your change is: " << change << " Pesos \n\n";
+		}
+}
+
+void MenuStore()
+{
+	int choice;
+	char moreUsers;
+
+	do
+	{
+		cout << "Medicine ni Bossing store \n\n\n";
+
+		cout << "1. View Medicine \n\n";
+		cout << "2. Buy Medicine \n\n";
+		cout << "3. Exit\n\n   Choice: ";
+
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1: DisplayMedicine();
+			break;
+		case 2: DisplayShop();
+			break;
+		case 3:
+			cout << "Exiting Medicine ni Bossing store.... \n\n";
+		}
+
+	} while (choice != 3);
+}
+
+
+
+int main()
+{
+	MenuStore();
+	return 0;
+}
+
+
+
+
+
+/*
+Biogesic
+Bioflu
+Paracetamol
+Lagundi
+Dextromethorphan
+*/
